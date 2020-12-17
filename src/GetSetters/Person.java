@@ -12,9 +12,9 @@ public class Person {
         return (1 <= arg && arg <= 5);
     }
 
-    private boolean isCorrectNames(String arg){
+/*    private boolean isCorrectNames(String arg){
         String regex = "[0-9A-Za-z\\s\\-]+";
-    }
+    }*/
 
     void setFIO(String name, String lastName) {
         this.name = name;
