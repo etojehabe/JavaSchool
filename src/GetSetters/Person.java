@@ -9,7 +9,7 @@ public class Person {
     }
 
     private boolean isCorrectRank(int arg) {
-        return (1 <= arg && arg <= 5);
+        return (1 <= arg && arg <= 6);
     }
 
 /*    private boolean isCorrectNames(String arg){
