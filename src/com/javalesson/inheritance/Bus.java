@@ -4,8 +4,8 @@ public class Bus extends FuelAuto {
 
     private int passengerNumber;
 
-    public Bus(String producer, String model, EngineType engineType, int availablePetrol, int tankVolume, int passengerNumber) {
-        super(producer, model, engineType, availablePetrol, tankVolume);
+    public Bus(String producer, String model, Engine engine, int availablePetrol, int tankVolume, int passengerNumber) {
+        super(producer, model, engine, availablePetrol, tankVolume);
         this.passengerNumber = passengerNumber;
         System.out.println("Bus was initialized");
     }
@@ -15,6 +15,7 @@ public class Bus extends FuelAuto {
         fuelUp(volume);
     }
 
+
     //Перезаписываем заправку под Bus
     @Override
     public void fuelUp(int petrolVolume) {
@@ -23,6 +24,25 @@ public class Bus extends FuelAuto {
             setAvailablePetrol(getTankVolume());
         }
         System.out.println("Adding DIESEL");
+    }
+
+    @Override
+    public void start() {
+        isRunning = true;
+        setCurrentSpeed(10);
+        System.out.println("Bus is starting");
+    }
+
+    @Override
+    public void stop() {
+        isRunning = false;
+        setCurrentSpeed(0);
+        System.out.println("Bus has stopped");
+    }
+
+    @Override
+    public void energize() {
+        fuelUp(getTankVolume() - getAvailablePetrol());
     }
 
     //Подбираем пассажиров
